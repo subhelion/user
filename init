@@ -53,3 +53,7 @@ function use {
 	[[ -d ~/desktop/user/package/$1 ]] && path ~/desktop/user/package/$1
 	[[ -f ~/desktop/user/module/$1 ]] && source ~/desktop/user/module/$1
 }
+
+function md {
+	mkdir --parents "$@"
+}

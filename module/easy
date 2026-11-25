@@ -1,7 +1,5 @@
 #!/bin/bash
 
-use
-
 use code
 
 function bell {
@@ -12,28 +10,6 @@ function home {
 	cd ~
 }
 
-function drop {
-	code_drop "$@"
-}
-
-function list {
-	skip
-}
-
-function push {
-	skip
-}
-
-function save {
-	code_save
-}
-
-function sync {
-	use git
-
-	git_sync
-}
-
-function size {
-	skip
+function a {
+	cd /a
 }

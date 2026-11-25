@@ -20,12 +20,15 @@ user_user=zach
 
 source $user_path/user/init
 
-use
-
-use code
-use data
-use easy
-
 function init begin
 	source ~/desktop/user/profile/$user_name/init
 end
+
+# hack
+
+[[ ":$PATH:" == *":/a/user:"* ]] || {
+	use
+	use code
+	use data
+	use easy
+}

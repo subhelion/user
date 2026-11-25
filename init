@@ -47,11 +47,15 @@ function has {
 function use {
 	[[ -z $1 ]] && return
 
+	function stub {
+		eval "function use_$1 { skip; }"
+	}
+
 	local -; set -o allexport
 
-	[[ $( type -t use_$1 ) == function ]] && eval "use_$1"
-	[[ -d ~/desktop/user/package/$1 ]] && path ~/desktop/user/package/$1
-	[[ -f ~/desktop/user/module/$1 ]] && source ~/desktop/user/module/$1
+	[[ $( type -t use_$1 ) == function ]] && { eval "use_$1";                    stub $1; }
+	[[ -d ~/desktop/user/package/$1    ]] && { path   ~/desktop/user/package/$1; stub $1; }
+	[[ -f ~/desktop/user/module/$1     ]] && { source ~/desktop/user/module/$1;  stub $1; }
 }
 
 function md {
